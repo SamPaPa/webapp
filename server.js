@@ -26,6 +26,10 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/plain" });
     return res.end("ok");
   }
+  if (req.url === "/favicon.ico") {
+    res.writeHead(204);
+    return res.end();
+  }
   res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
   res.end(page(req));
 });
